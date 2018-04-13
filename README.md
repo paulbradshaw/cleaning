@@ -27,12 +27,16 @@ This repo contains resources for dealing with data problems. In particular, the 
 * Need to extract information - e.g. first name/surname; street name/region; year/month
 * Need to classify information - e.g. male vs female name
 
+I keep a series of bookmarked materials on cleaning using Pinboard at https://pinboard.in/u:paulbradshaw/t:cleaning
+
 
 ## Examples of dirty data
 
 See the [dirtydata](https://github.com/paulbradshaw/cleaning/tree/master/dirtydata) folder in this repo for examples of dirty data.
 
 [This sample dirty dataset can be used for basic data cleaning in Open Refine](https://docs.google.com/spreadsheets/d/1CDWBeqpUTBd1TkmDz_M6UGRWdHgU7LOcoiGRTvIttKA/edit?usp=sharing#gid=0)
+
+I also bookmark examples of dirty data at https://pinboard.in/u:paulbradshaw/t:dirtydata
 
 ## Tutorials
 
