@@ -36,6 +36,8 @@ See the [dirtydata](https://github.com/paulbradshaw/cleaning/tree/master/dirtyda
 
 ## Tutorials
 
+A [series of introductory guides to Open Refine can be found in the GitHub repo for one of my modules at Birmingham City University here](https://github.com/paulbradshaw/MED7369-Specialist-Investigative-Journalism/tree/master/cleaning)
+
 * [Open Refine's 'common transforms' features for basic cleaning](https://onlinejournalismblog.com/2011/07/05/cleaning-data-using-google-refine-a-quick-guide-2/)
 * [How to: clean up spreadsheet headings that run across multiple rows using Open Refine](https://onlinejournalismblog.com/2013/11/13/how-to-clean-up-spreadsheet-headings-that-run-across-multiple-rows-using-open-refine/)
 * [Converting JSON or XML into spreadsheets using Open Refine](https://onlinejournalismblog.com/2015/10/21/how-to-convert-xml-or-json-into-spreadsheets-using-open-refine/)
