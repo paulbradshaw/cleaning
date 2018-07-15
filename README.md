@@ -14,15 +14,20 @@ This repo contains resources for dealing with data problems. In particular, the 
 
 ## Typical data problems
 
+* Numbers/dates treated as strings (often because of currency or percentage signs, or even spaces - try find and replace)
+* Strings treated as numbers: e.g. company ‘numbers’, phone numbers and codes often have leading zeroes removed when they are an integral part of the code.
+* Combined data (addresses)
+* Different data in one column (country, region and authority, for example, with spaces or formatting used to indicate the difference)
+* Variant spellings
+* Inconsistently entered info (e.g. £5k vs £5,000)
+* Different terms for same thing
+* Mistypings - missing decimals etc.
 * Merged cells
 * Empty rows
 * Headings across multiple rows
-* Different information in same column
-* Different terms for same thing
 * Converted PDFs
 * Missing information
 * Duplicate information
-* Inconsistently entered info (e.g. £5k vs £5,000)
 * Format
 * Need to extract information - e.g. first name/surname; street name/region; year/month
 * Need to classify information - e.g. male vs female name
