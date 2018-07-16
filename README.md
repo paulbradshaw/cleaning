@@ -41,6 +41,8 @@ See the [dirtydata](https://github.com/paulbradshaw/cleaning/tree/master/dirtyda
 
 [This sample dirty dataset can be used for basic data cleaning in Open Refine](https://docs.google.com/spreadsheets/d/1CDWBeqpUTBd1TkmDz_M6UGRWdHgU7LOcoiGRTvIttKA/edit?usp=sharing#gid=0)
 
+[The European Investment Bank database](http://www.eib.org/en/projects/loan/list/index.htm) can be downloaded (look for *Export to Excel* near the bottom) and provides a useful example of data where dates are formatted as strings.
+
 I also bookmark examples of dirty data at https://pinboard.in/u:paulbradshaw/t:dirtydata
 
 ## Tutorials
