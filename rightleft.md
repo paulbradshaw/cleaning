@@ -1,34 +1,12 @@
 # Grabbing or checking the first, middle or last part of a piece of information: `RIGHT`, `LEFT` and `MID`
 
+*This is an extract from [Finding Stories in Spreadsheets](http://leanpub.com/spreadsheetstories/)*
+
 Sometimes you only want to look at part of some data - for example the first or last part of a postcode, zip code, or telephone number. Dates which are stored as text rather than numbers are also prime candidates.
 
 The functions `RIGHT`, `LEFT` and `MID` are tailor-made for those problems. These will, respectively, grab a specified number of characters from the end, beginning, or middle of a cell. 
 
 Used on their own they work particularly well where you always want the same number of characters - but they can also be combined with other functions to grab different amounts of text, as we'll see.
-
-A> ### Splitting names, dates, addresses and other data: text to columns
-A>
-A> If your data already has a particular character that marks one part from another - such as a space between first name and surname, or slashes between day, month and year - then you can use the menu option **Text to columns...** (normally in the **Data** menu) to split it, rather than needing to use a function. Note that if you use this, the original column will no longer exist, so you might want to duplicate it first.
-A>
-A> To use this function first make sure that the column you want to split is placed *in the last column of your data*. You may need to select it, cut or copy it, and paste it at the far right of your data to get it there. 
-A>
-A> This is because when you split the column *it will overwrite anything to the right of it*. 
-A>
-A> Once the column is in the right place, select it, and then go to **Data > Text to columns...** 
-A>
-A> ![](images/texttocols.png)
-A>
-A> The *Text to columns wizard* will now open. The first option it presents you with is whether you are splitting 'Delimited' or 'Fixed width' data. Fixed width data can be split 	on a specified character position (for example, it can split all cells at the fourth character) but here we're talking about *delimited* data: that is, data where a specific character sets the limits of one part, such as the end of the first name or the day. Make sure this is selected and click **Next**.
-A>
-A> The next step presents you with a number of common characters you can select as your delimiter: *space*, for example (which may separate a first name from a second name), and *comma* (which may separate the first line of an address from a second part, and a third part). If you want to split your data on either of those characters, or *tab*, or *semicolon*, then tick the relevant box and click **Next**. If you want to specify another character - such as a slash - then tick *Other:* and type the character in the box next to it. Note that you cannot enter multiple characters here.
-A>
-A> In the final step you have some options to format the new columns you are creating. This defaults to 'general' and in most cases that will be fine. However, if one part of your data is a date, you can *select that column* in the preview at the bottom and then tick *Date:* in the area above and to the right of that. You can also, next to *Date:*, select what format the date uses - YMD (Year/Month/Date), MDY (Month/Date/Year) and so on.
-A>
-A> Note when you change the format that the preview underneath reflects this: the first row describes the format of the column underneath. So you can see at a glance how each column is going to be formatted.
-A>
-A> If you're happy with the preview then click **Finish** and you should now have at least two columns where you previously only had one.
-A>
-A> In some cases, you may find moving columns around more hassle than using a `LEFT` function. Perhaps more likely, however, is that you want to retain your original data and use those other functions to extract from it, rather than splitting it up.
 
 ## Grabbing characters from the beginning: LEFT
 
@@ -49,24 +27,6 @@ If it is stored as text, however, the `LEFT`, `RIGHT` and `MID` functions can he
 To give you an example: in the series of characters "2012-08-16" *not* stored as a date this formula will grab the first two: `20`. However, if it *is* a real date then it will grab the first two digits of that date *when expressed as a number*: `41` (the full number for that date is 41137).
 
 If you get a result like this you know the date is stored as a number, and you should use `YEAR`, `MONTH` or `DAY` instead.
-
-A> ### Dealing with dates and partial dates stored as text: `DATEVALUE`
-A>
-A> If you are trying to clean up dates that have been stored as text, take a look at the `DATEVALUE` function. This will convert a date which is stored as a text string, into a date which is stored as a number string.
-A>
-A> The best way of demonstrating this is by using the `TEXT` function to show you what happens when dates are stored as text.
-A> 
-A> Type a date in cell A1 - for example `12/12/99`. Excel interprets this as a date and stores it as the number of days since 1900 (35044), but still *formats* the date as `12/12/99`. The date will be aligned right.
-A>
-A> In cell B1 type the formula `=TEXT(A1,"dd/mm/yyyy")`. This will turn that date into some text which shows the days as two characters, followed by a slash, followed by the month as two characters, followed by another slash, and then the year as four characters. You can tell it's text because it's aligned *left*.
-A>
-A> Now if you right click on cell B1 and select **Format cells...** you'll notice that changing the format to *General* or *Number* does not change the date in the same way that it would in cell A1.
-A>
-A> In cell C1, then, you can turn the date-as-text-string *back* into a date-as-number by using the `DATEVALUE` function like so: `=DATEVALUE(B1)`
-A>
-A> Unless C1 is formatted in some other way, you should see the result as a number: 35044. You can format this as a date by, again, right-clicking and selecting the **Format cells...** option, then choosing *Date*.
-A>
-A> `DATEVALUE` is particularly good for dealing with **partial dates** - as long as they refer to this year. A text string like `12-Dec` will be interpreted by `DATEVALUE` as the 12th December *this year*, and converted accordingly. 
 
 
 
@@ -104,11 +64,6 @@ If cell A1 contained the string `Finding stories in spreadsheets`, then, here ar
 
 A `MID` formula working on this text which specified a starting position of 32 or higher would return nothing, because there are no characters from that position. But it will *not* generate an error.
 
-T> ### When you don't know how many characters from the end: MID as an alternative to RIGHT
-T> 
-T> Because `MID` can hit the end of your text and not generate an error, the `MID` function can be a useful alternative to `RIGHT` when you do not know exactly how many characters you want to grab at the end of a cell, but you do know what position those characters start *from*.
-T> 
-T> In these cases, just set the number of characters to a value which you know will always capture *all* characters after your specified point, for example `100`. In practical terms this translates as 'grab all the characters from this point until the end'.
 
 ## What if the starting position or number of characters *depends*? Introducing LEN
 
@@ -182,25 +137,6 @@ If the specified character/s are *not* in the specified cell, you will get a `#V
 W> For languages that support double-byte character sets (DBCS) such as Japanese, Chinese (Simplified), Chinese (Traditional), and Korean you can also use functions like `MIDB`, `LEFTB`, `RIGHTB`, `LENB`, `REPLACEB`, `SEARCHB` and `FINDB` functions which count each double-byte character as 2. 
 
 
-A> ## Extracting characters by getting rid of the others: REPLACE
-A>
-A> An alternative to using `LEN` to calculate the starting point of the text you want is to use a different function to get rid of the text that you *don't want*.
-A> 
-A> A useful function to that end is `REPLACE`. This will replace characters in any cell at a specified character position for a specified number of characters - rather like a reverse `MID`.
-A> 
-A> Unfortunately `REPLACE` is one of the more complex functions, requiring four parameters: the cell you want to use; what character to begin replacing from; how many characters to replace for; and what to replace those characters with.
-A> 
-A> If we had a six character code and wanted to grab the first three characters using this approach, the formula would look like this:
-A> 
-A> `=REPLACE(A2,4,3,"")`
-A> 
-A> Translated, this says: replace in cell A2, from the fourth character, for three characters, with nothing (`""`).
-A> 
-A> As with `MID` you can ensure the replacing runs to the end by using an artificially large number like 100:
-A> 
-A> `=REPLACE(A2,4,100,"")`
-A> 
-A> And like `MID`, this will not generate an error.
 
 
 ## Recap
@@ -227,43 +163,3 @@ A> And like `MID`, this will not generate an error.
 
 
 
-## Finding the story: how old are Guantanamo prisoners?
-
-In the last chapter I linked to [a spreadsheet containing details on almost 800 individuals detained by the US Department of Defense at Guantanamo Bay, Cuba](https://drive.google.com/file/d/0B5To6f5Yj1iJa0xmbVNRZTdyQk0/edit?usp=sharing), and suggested some exercises in finding stories using the techniques for getting ages in Excel. 
-
-1. You could check that the date of birth is being treated as a number by Excel in a number of ways. Firstly, by looking at the alignment: it's aligned right, which is how Excel aligns numbers. Secondly, you could right-click on the date and select **Format cells...** then reformat it as *number* or *general* - if it doesn't change to a number then it's a text string. Thirdly, you could use the function `ISNUMBER` to check if a specified cell contains a number - and copy that down a new column.
-
-2. A formula in column C to give us the age of each individual based on their date of birth might look like this: `=YEAR(TODAY())-YEAR(B2)-(TEXT(B2,"mmdd")>TEXT(TODAY(),"mmdd"))`. That formula has two parts: today's year minus the year of the date of birth - `=YEAR(TODAY())-YEAR(B2)` and then a TRUE/FALSE test on whether the month-day of the date of birth is greater than the month-day of today's date: `(TEXT(B2,"mmdd")>TEXT(TODAY(),"mmdd"))`. The result of that second part (TRUE = 1 and FALSE = 0) is subtracted from the first calculation.
-
-> It will be clearer to put those two parts in two separate columns: `=YEAR(TODAY())-YEAR(B2)` in column C and `=TEXT(B2,"mmdd")>TEXT(TODAY(),"mmdd")` in column D, then combine them in a further column as `=C2-D2`.
-
-> If you can remember the `DATEDIF` function it's much easier: `=DATEDIF(B2,TODAY(),"Y")`. That is: *give me the difference between the date in B2 and today's date, in years*.
-
-> There's also Steve Doig's approach, which would give you an age including decimal places. That would be adapted as this formula: `=(TODAY()-B2)/365.25`. Remember not to reduce the decimal places which will round the number up!
-
-W> Because the B column is formatted as a date, when you insert a new column it will use the same formatting for your results: 101 will be formatted as `04/10/00` or similar. Remember to format the cells in the new column as a number to prevent this happening.
-
-3: The answers above cover some of the error checking: for example, checking if someone's birth date is later than today's date, or ensuring that numbers are not rounded up. However, you'll also need some more traditional error checking: the first prisoner listed, for example, seems to have been born in 1913, making him over 100 years old. Or was he born in 2013, making him a mere baby?
-
-> It seems Mohammed Sadiq was indeed born in 1913. [A document from the Department of Defense published on The Guardian website](http://www.theguardian.com/world/guantanamo-files/US9AF-000349DP) appears to confirm it. But whether he is over 100 - or has since died - we would also have to check.
-
-> There are also rows towards the bottom of the spreadsheet which generate `#VALUE!` errors when you attempt to calculate an age. This is because the 'date of birth' field does not contain a date, but a string of text such as "26 yrs old in 07", "UNDISCLOSED", "UNKNOWN" or "c. 1974". Some further research might yield more information, but more likely we will have to be clear that a certain proportion of our figures are unknown.
-
-4: The stories we might tell about these ages include: a story on the oldest prisoner in Guantanamo; a story on the youngest prisoner(s) in Guantanamo; a story on young prisoners generally - how old were they when they were arrested. Mohammed Sadiq, for example, according to that document, was 89 when he was detained in 2002. You could also write a story on the ageing section of prisoners. And of course you could chart the age distribution of prisoners from different countries: Sudanese prisoners, for example, tend to be much older than those with Yemeni citizenship. Is this because some prisoners are accused of being fighters while others are suspected of being politically powerful?
-
-
-X> ## Find the story: what postcode areas are worst for hygiene inspections?
-X> 
-X> In [the food hygiene data you've been working on](https://drive.google.com/file/d/0B5To6f5Yj1iJeUM2VFZkaUc3MDQ/edit?usp=sharing) for the last couple of chapters is a 'PostCode' column. As explained in this chapter, UK postcodes can be anything from five to seven characters long, but the second part is always three characters.
-X> 
-X> 1. Create a new column which uses the `LEN` function to calculate the length of each postcode in turn.
-X> 
-X> 2. Create a new column which uses *that* column (the lengths of the postcodes) to calculate how long the first part of each postcode is: 2, 3 or 4.
-X> 
-X> 3. Create a third new column which uses the `LEFT` function and *that* column (the lengths of the first part of each postcode) to extract the first part of each postcode.
-X> 
-X> 4. In a fourth column try to write one *nested* function which uses both `LEN` and `LEFT` to grab the right number of characters from the left for each postcode. If it works you can delete the other three that it took to do the same job!
-X> 
-X> 5. In a further column see if you can get the same result by using the `REPLACE` function. There's no reason why you should use this more complex function instead for this particular job, but it's useful to get some experience in using it.
-X> 
-X> 6. How can you work out which postcode area appears most often?
