@@ -1,6 +1,6 @@
 # What day did that date fall on? Which year was the worst? Extracting days, months and years from full dates
 
-![This story from Ampp3d identifies the 'worst' years in one particular dataset](images/datestory.png)
+*This is an extract from [Finding Stories in Spreadsheets](http://leanpub.com/spreadsheetstories/)*
 
 Dates are enormously useful bits of data. They can help us to find stories about peaks and troughs: whether things are getting better or worse; what times of the year or week are or were best or worst for a particular event - whether that event is a crime, or an extreme bit of weather.
 
@@ -20,10 +20,9 @@ The functions `DAY`, `MONTH` and `YEAR` are designed for this purpose. Try the f
 * In cell B1 type the formula `=YEAR(A1)`.
 * In cell C1 type the formula `=MONTH(A1)`.
 * In cell D1 type the formula `=DAY(A1)`.
+* In cell E1 type the formula `=WEEKDAY(A1)`
 
-Each of those formulae should give you a number corresponding to the year, month, or day in the date it uses.
-
-W> Make sure you know whether the dates use UK or US date formatting - and that the formulae are interpreting them correctly. UK dates use day/month/year; US dating uses month/day/year. Excel should format dates [based on your computer's region settings](http://excelsemipro.com/2011/06/regional-date-formats-in-excel/), but in some cases the creator of the spreadsheet may have formatted dates in a way which prevents this.
+Each of those formulae should give you a number corresponding to the year, month, or day in the date it uses (`WEEKDAY` returns a number representing the day of the week - between 1 (for Sunday) and 7 (for Saturday)).
 
 This is very useful - but what if you don't want a number? What if you want that day or month as a word? Here we'll need a slightly more powerful function.
 
@@ -58,42 +57,6 @@ Only one of those letters can be used *five* times:
 
 * `=TEXT(A1,"MMMMM")` gives you the first character of the month: `J` for July, for example, but also January and June - so, probably not much use then.
 
-T> ### Which day of the week? The `WEEKDAY` function
-T>
-T> `WEEKDAY` is yet another date function which can come in handy if you want to know which day of the week a date occurred - but *want that expressed as a number* between 1 and 7.
-T>
-T>  By default those numbers begin on Sunday (1) and end on Saturday (7). So the date September 11th 2001 (09/11/2001 in US date format or 11/09/2001 in UK date format), when used with the `WEEKDAY` function will return the value `3` - or Tuesday.
-T>
-T> The full formula to calculate this looks like so: `=WEEKDAY("09/11/2001")` - or `=WEEKDAY(A2)` where the date is in cell A2.
-T>
-T> However, if you *don't* want to start counting from Sunday the `WEEKDAY` function has an *optional* second parameter: a number which you can add to specify which day you want to count *from*.
-T>
-T> A formula which has this second parameter will look something like this: `=WEEKDAY(A2,1)`
-T>
-T> If you specify the value `2`, for example, in the formula `=WEEKDAY(A2,2)`, the days will be counted from Monday (1) to Sunday (7). 
-T>
-T> If you add the number `3` in the formula `=WEEKDAY(A2,3)` then the days will be counted in the same sequence, but will start counting from zero (0), with the highest possible value - Sunday - now represented by a 6.
-T>
-T> The full list of values and what they do are as follows:
-T>
-T> 1 or 17: Sunday will be 1, through to Saturday as 7
-T>
-T> 2 or 11: Monday will be 1, through to Sunday as 7
-T>
-T> 3: Monday will be 0 through to Sunday as 6
-T>
-T> 12: Tuesday will be 1, through to Monday as 7
-T>
-T> 13: Wednesday will be 1 through to Tuesday as 7
-T>
-T> 14: Thursday will be 1, through to Wednesday as 7
-T>
-T> 15: Friday will be 1, through to Thursday as 7
-T>
-T> 16: Saturday will be 1, through to Friday as 7
-T>
-T> If you try to use other values you will get a `#NUM!` error. You can also [find these values listed on Microsoft's support page for the `WEEKDAY` function](http://office.microsoft.com/en-gb/excel-help/weekday-function-HP010343015.aspx).
-
 
 ### Month and year combinations
 
@@ -107,8 +70,6 @@ You can also add slashes, dashes, commas or other characters like so:
 
 Using one of these formulae allows you to generate whole columns showing just the year, month, or day on which an event occurred - as numbers, words, or three-character codes. Now you can calculate the trends you're looking for.
 
-W> If you try to enter any date before 1900 Excel doesn't like it at all, and functions like `YEAR` and `DAY` will generate `#VALUE!` errors. In these cases it may be better to format the dates as text, and use some of the techniques detailed in subsequent chapters to extract numbers from those.
-
 ## Using the Format Cells 'Custom' option to do the same thing to existing dates
 
 If all you want is a series of months or days, you can actually use the **Format Cells** menu to change a date column in the same way. 
@@ -117,13 +78,11 @@ This can be accessed by first selecting your date column (so that the results ap
 
 This should bring up the *Format cells* menu. You'll notice that this has a *Date* option to change how a date is displayed. Instead of the three series of digits separated by a slash, for example (i.e. 11/07/2013), you can choose a more natural language expression such as "Thursday, 11 July 13" and a number of other variations. 
 
-![](images/dateformatmenu.png)
 
 As always, this doesn't affect the underlying information (which is that number representing the number of days since the start of 1900) but it still shows *all* the information: day, month, year.
 
 To show *only* that, select the *Custom* option at the bottom of the list of formatting options on the left. If the cell is already formatted as a date, then you should see date-related options suggested in the box underneath.
 
-![](images/customformatmenu.png)
 
 If not, you will see a series of other options. But it doesn't matter: either way you will need to type what you want into the box above those, and underneath *Type:*.
 
@@ -143,8 +102,6 @@ And of course these can be combined: `mmmm dd yy` will give you `July 11 13`; `y
 You can add text strings here if you feel like it, by putting them in quotation marks like so: `mmmm "the" dd` which will produce `July the 11`. If you feel tempted to add "th" on the end, remember that this will apply to *all* dates, including the "1th", "2th", "3th" and so on.
 
 Once applied, you will have a whole column containing just months, days, years, or any combination of those. The major disadvantage is that your original full dates are now hidden. This is why it's often better to use the `TEXT` function to fill extra columns with the specific data you want to work with, while leaving the full dates alone to be checked alongside that.
-
-![This story from the Birmingham Mail focuses on hours rather than days or months](images/earlyhours.png)
 
 ## Hours and minutes: HOUR, MINUTE, SECOND and TEXT again
 
@@ -196,33 +153,7 @@ And of course you can grab all three:
 
 A final note on the `TEXT` function: it is not just designed to extract details from dates: [the same function can be used with numbers](http://www.techonthenet.com/excel/formulas/text.php) - particularly financial figures to add currency signs, commas, round up or down and add other formatting. 
 
-![The Economist's 'Chart of the Day' visualised over 2,200 goals by the minute in which they were scored](images/goaltimes.png)
 
-A> ### Grabbing times of day and storing them as numbers using `TIMEVALUE` or `TIME`
-A>
-A> A further function which is particularly useful if you're looking at times is `TIMEVALUE`.
-A>
-A> `TIMEVALUE` does two things:
-A>
-A> 1. Firstly, it will grab *just the time of day* from any timestamp - just as `TEXT` can grab just the minute and hour. So for example 12 midday on December 12 2012 is stored as simply `0.5` - that is, *half* of a day. This is particularly useful if you have data on a range of dates but are only interested in what *time* something happened.
-A>
-A> 2. Secondly, `TIMEVALUE` will convert any time description *stored as text* so that it is stored as a number instead. So the phrase `"6:00 AM"` will be converted to `0.25`, allowing you to perform calculations such as asking if one time came before another, or how much time elapsed between one and another.
-A>
-A> Note that if the time *is* stored as a number (check if it's aligned right) then `TIMEVALUE` will return a `#VALUE!` error. If the time is stored as text, it should be aligned *left*.
-A>
-A> Note also that it does *not* work on more vague text expressions such as 'midday' or '12 midday', but only on the more specific sequence of text characters that Excel itself uses for a time (i.e. two pairs of digits separated by a colon, possibly followed by "AM" or "PM").
-A>
-A> The `TIMEVALUE` function only needs one ingredient: the cell containing the date or time-as-text-string that you want to convert. A typical formula might look like this: `=TIMEVALUE(A2)`
-A>
-A> A second function - `TIME` - is slightly more complex and less likely to be useful, but it's worth explaining as well.
-A> 
-A> `TIME` does much the same thing as `TIMEVALUE`: it converts a time into a number: a decimal point which describes what point of a day it is. So, 12 midday is 0.5: halfway through the day. 6am is 0.25: a quarter of the way through the day, and 6pm is 0.75: three-quarters of the way through the day. Other times are not so simple: 1am is 0.041666667, for example. But it's Excel's job to perform calculations with those.
-A>
-A> The difference between `TIMEVALUE` and `TIME` is that whereas `TIMEVALUE` only needs one ingredient, `TIME` needs three: the hour, minute, and second of the time you want to convert.
-A>
-A> So using `TIME` to convert 12 midday would look like this: `=TIME(12,0,0)` - that is: *convert 12 hours, 0 minutes and 0 seconds to a number*.
-A>
-A> The most likely use case for this is where hours, minutes and seconds are stored in different columns in a particular dataset, and you want to combine them in a way that can be used in calculations. 
 
 ## When things don't go as you expect them to: dealing with errors in date functions
 
