@@ -45,6 +45,10 @@ See the [dirtydata](https://github.com/paulbradshaw/cleaning/tree/master/dirtyda
 
 I also bookmark examples of dirty data at https://pinboard.in/u:paulbradshaw/t:dirtydata
 
+For working with XML files try the ones that can be [downloaded from the Food Standards Agency API page](http://ratings.food.gov.uk/open-data/en-GB)
+
+For JSON files try [petition.parliament.uk](https://petition.parliament.uk/) - go to any petition and look for the JSON link at the bottom of the page.
+
 ## Tutorials
 
 A [series of introductory guides to Open Refine can be found in the GitHub repo for one of my modules at Birmingham City University here](https://github.com/paulbradshaw/MED7369-Specialist-Investigative-Journalism/tree/master/cleaning)
