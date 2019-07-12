@@ -1,4 +1,4 @@
-# Dealing with dirty data problems and using Open Refine
+# Dealing with dirty data problems (and using Open Refine)
 
 This repo contains resources for dealing with data problems. In particular, the tool Open Refine.
 
@@ -17,6 +17,7 @@ This repo contains resources for dealing with data problems. In particular, the 
 
 * Numbers/dates treated as strings (often because of currency or percentage signs, or even spaces - try find and replace)
 * Strings treated as numbers: e.g. company ‘numbers’, phone numbers and codes often have leading zeroes removed when they are an integral part of the code.
+* [Numbers and units combined in sentences structures](https://github.com/paulbradshaw/cleaning/blob/master/sentencestonumbers.md)
 * Combined data (addresses)
 * Different data in one column (country, region and authority, for example, with spaces or formatting used to indicate the difference)
 * Variant spellings
@@ -57,6 +58,7 @@ A [series of introductory guides to Open Refine can be found in the GitHub repo 
 * [Open Refine's 'common transforms' features for basic cleaning](https://onlinejournalismblog.com/2011/07/05/cleaning-data-using-google-refine-a-quick-guide-2/)
 * [How to: clean up spreadsheet headings that run across multiple rows using Open Refine](https://onlinejournalismblog.com/2013/11/13/how-to-clean-up-spreadsheet-headings-that-run-across-multiple-rows-using-open-refine/)
 * [Converting JSON or XML into spreadsheets using Open Refine](https://onlinejournalismblog.com/2015/10/21/how-to-convert-xml-or-json-into-spreadsheets-using-open-refine/)
+* [Converting sentences to numbers using a spreadsheet](https://github.com/paulbradshaw/cleaning/blob/master/sentencestonumbers.md)
 * Tony Hirst explains [Data Shaping in Google Refine – Generating New Rows from Multiple Values in a Single Column](https://onlinejournalismblog.com/2012/07/30/data-shaping-in-google-refine-generating-new-rows-from-multiple-values-in-a-single-column/)
 * I've written about [Scraping data with Google Refine](https://onlinejournalismblog.com/2012/01/13/sftw-scraping-data-with-google-refine/)
 * Former MA Online Journalism student Ion Mates explains how he used some of Refine's more advanced functionality, and regex, in his post on [cleaning a converted PDF](https://onlinejournalismblog.com/2015/04/07/how-to-clean-a-converted-pdf-using-open-refine/)
