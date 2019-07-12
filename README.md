@@ -5,6 +5,7 @@ This repo contains resources for dealing with data problems. In particular, the 
 ## Data cleaning tools
 
 * [Download Open Refine](http://openrefine.org/download.html)
+* [Workbench](https://workbenchdata.com/) - includes much of Refine's functionality including clustering
 * [Mr People](http://people.ericson.net/) - for splitting names
 * [Dataproofer](http://dataproofer.org/)
 * [Data Wrangler](http://vis.stanford.edu/wrangler/) (no longer supported)
