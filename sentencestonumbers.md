@@ -1,14 +1,10 @@
 # How to extract numbers from sentences written as phrases
 
-*This guide outlines a process used in a [story on unduly lenient sentences](https://www.bbc.co.uk/news/uk-47879288). You can [find the data and other background in a GitHub repo here](https://github.com/BBC-Data-Unit/unduly-lenient-sentences).*
+Sometimes you need to deal with numerical data presented in a textual form where units and amounts are combined and need to be extracted separately. 
+
+One [story on unduly lenient sentences](https://www.bbc.co.uk/news/uk-47879288) illustrates this particularly well. The data detailed sentences in a variety of phrases which identified the number of years, months, weeks and even days that the sentence was composed of. 
 
 Here’s what the data looks like:
-
-|   |   |   |   |   |
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
 
 | Original Sentence | Revised Sentence |
 |---|---|
@@ -16,6 +12,8 @@ Here’s what the data looks like:
 | 2 years' imprisonment suspended for 2 years | Sentence Unchanged |
 | 12 years' imprisonment | 14 years' imprisonment |
 | 22 months' imprisonment | Sentence Unchanged |
+
+(You can [find the data and other background in a GitHub repo here](https://github.com/BBC-Data-Unit/unduly-lenient-sentences).)
 
 This is what you need to do:
 
