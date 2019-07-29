@@ -15,7 +15,11 @@ Here’s what the data looks like:
 
 (You can [find the data and other background in a GitHub repo here](https://github.com/BBC-Data-Unit/unduly-lenient-sentences).)
 
-This is what you need to do:
+## Break down the steps
+
+
+The first thing to do in any situation like this is break down the task into its constituent problems/challenges. Well, we need to:
+
 
 * Identify *where* the number of years is stated
 * Extract that number of years
@@ -25,23 +29,24 @@ This is what you need to do:
 * Convert years and months to a number
 * Convert years and months to a common measure (total months)
 
-## Identify where the years/months are detailed
+## Identify where the years/months are detailed: using `SEARCH`
 
-Use `SEARCH` to tell you where the first mention of a word appears. It’s case-insensitive:
 
-`=search("year",G14)`
+The function `SEARCH` will tell you where the first mention of a word appears. It’s case-insensitive:
+
+`=SEARCH("year",G14)`
 
 *Translation: Search for where year appears in `I2`*
 
 This (written in cell I2) returns a position, e.g. 4. If it doesn’t find it, it returns `#VALUE`
 
-We assume that the number of years appears 3 positions before that (one space, plus two digits). So we subtract 3 to get the position of the *number* of years.
+We assume that the number of years appears 3 positions *before* that (one space, plus two digits). So we subtract 3 to get the position of the *number* of years.
 
 `=search("year",G14)-3`
 
 ## Extract the number of years/months (and correct for problems)
 
-If it’s a single figure, we should get just the space before it, which is fine. But if it’s at the start of a line, we won’t, and will get an error instead.
+If it’s a single figure, we should get just the space before it, which we will deal with below. But if it’s at the start of a line, we won’t, and will get an error instead.
 
 So we need a new column (L) to correct for that:
 
@@ -55,19 +60,64 @@ This grabs characters from that position, and continues grabbing for 2 character
 
 However, this might also grab spaces if only one character is a digit.
 
-To correct that, and make sure the result is formatted as a number, nest this again in an INT function (which turns a value into an integer):
+## Handling an unnecessary space
+
+
+To correct that unnecessary space, and make sure the result is formatted as a number, nest this again in an `INT` function (which turns a value into an integer):
 
 `=INT(MID(I2, IF(K2=0,1,K2),2))`
 
-You can adapt and repeat the above two processes for months - and also for the revised years and months - to get the four numbers you need.
+We could use the `TRIM` function, which removes trailing and leading white space, but this would not change the *type* of data that the space surrounds.
 
-## Identify unusual words
+
+Note that this process involves a lot of *trial and error*: our initial formula works for most cells, but we then focus on *error handling* with the cells where it does not.
+
+
+You can adapt and repeat the above two processes for months, weeks and days - and also for the revised years, months and so on - to get the numbers you need.
+
+## Converting to a common measure
+
+
+Once you have columns extracting the numbers of years, months, weeks and days you need to be able to convert them to a common measure in order to perform any calculations. How much longer, for example, is 1 year and 2 months, than 0 years and 5 months?
+
+
+The simple way to do this is to **convert all measures to the lowest common denominator**.
+
+In this case that would be *days*, so:
+
+
+* Multiply the years figures by 365 to get days (we could use 365.25 to account for leap years, but it's not relevant)
+
+
+* Multiply the months by 31 (again, we don't need to use a decimal to account for the fact that month lengths vary - we only need a consistent figure that allows us to calculate differences)
+
+
+* Multiply the weeks by 7
+
+
+Once this is done, we can add up all those figures for each sentence to get a total number of days for that sentence.
+
+
+Repeat for the revised sentence and you now have two figures that you can compare to get a new figure: the **difference** between the two sentences.
+
+
+That difference can now be averaged (for example, the average change in sentence by offence), and converted accordingly (years, months and weeks) if needed.
+
+
+## Manual cleaning: identifying unusual words
 
 It’s worth adding a column which just measures the length of the description cell, so you can sort it and pick out outliers:
 
 `=LEN(I2)`
 
-The longest cell on that basis is this one: “4 years and 6 months’ imprisonment with a licence extension of 2 years and 6 months” which can help you decide to add a column checking for those key words:
+The longest cell on that basis is this one:
+
+> *“4 years and 6 months’ imprisonment with a licence extension of 2 years and 6 months"*
+
+These unusual entries may contain more than one mention of the word being searched for ("years") or extra caveats which are important to factor in.
+
+
+You decide to add a column checking for those key words:
 
 `=COUNTIF(I2,"*licence*")`
 
@@ -77,6 +127,11 @@ You can use the same function to check whether a sentence mentions years or mont
 
 `=COUNTIF(I2,"*year*")`
 
-A `0` value should match up with a `#VALUE` error in your earlier formula. You can use filters to check that they all do, and investigate any that don’t.
+A `0` value should match up with a `#VALUE` error in your earlier formula. You can use filters to check that they all do, and investigate any that don’t. This may lead you to extra cleaning steps, or in most cases you might decide it is quicker to manually correct or clarify those entries.
 
-Repeat for month, and for revised year and month.
+
+## Sometimes hard work ends up left out of the story
+
+Despite all this work to extract the numbers from the data, in the end it was decided to leave this dimension out of the eventual story, as it became clear that the story was going to focus on the proportion of requests which were not eligible for review.
+
+It's important to mention this because often in journalism — not just data journalism — you have to be prepared to leave out material because the focus of your story has changed, regardless of the work that went into it. Ultimately it doesn't matter how much work something involved: if it's not central to the story, then it shouldn't be there.
