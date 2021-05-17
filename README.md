@@ -6,7 +6,6 @@ This repo contains resources for dealing with data problems. In particular, the 
 
 * [Download Open Refine](http://openrefine.org/download.html)
 * [Workbench](https://workbenchdata.com/) - includes much of Refine's functionality including clustering
-* [Mr People](http://people.ericson.net/) - for splitting names
 * [Dataproofer](http://dataproofer.org/)
 * [Data Wrangler](http://vis.stanford.edu/wrangler/) (no longer supported)
 * [Gender API](https://gender-api.com) and [Genderize.io](https://Genderize.io) (also available as [an R package](https://cran.r-project.org/web/packages/genderizeR/index.html)) can be used to classify names by gender
