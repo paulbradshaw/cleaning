@@ -1,9 +1,4 @@
----
-title: "Cleaning data with tidyverse"
-author: "Paul Bradshaw"
-date: "5 March 2017"
-output: html_document
----
+# Cleaning data with tidyverse
 
 These are notes from the book [R for Data Science](http://r4ds.had.co.nz/) - specifically the [tidy data section](http://r4ds.had.co.nz/tidy-data.html).
 
