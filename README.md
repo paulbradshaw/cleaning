@@ -5,11 +5,13 @@ This repo contains resources for dealing with data problems. In particular, the 
 ## Data cleaning tools
 
 * [Download Open Refine](http://openrefine.org/download.html)
-* [Workbench](https://workbenchdata.com/) - includes much of Refine's functionality including clustering
+* [Workbench](https://workbenchdata.com/) (no longer supported but can be run using Docker) - includes much of Refine's functionality including clustering
 * [Dataproofer](http://dataproofer.org/)
 * [Data Wrangler](http://vis.stanford.edu/wrangler/) (no longer supported)
 * [Gender API](https://gender-api.com) and [Genderize.io](https://Genderize.io) (also available as [an R package](https://cran.r-project.org/web/packages/genderizeR/index.html)) can be used to classify names by gender
 * [Parserator](https://parserator.datamade.us/) can be used to split addresses
+* The [tidyverse](https://www.tidyverse.org/) in R: a collection of libraries for making data 'tidy'. Also [janitor](https://towardsdatascience.com/cleaning-and-exploring-data-with-the-janitor-package-ee4a3edf085e)
+* Python has [pandas](https://pandas.pydata.org/), and [pyjanitor](https://github.com/pyjanitor-devs/pyjanitor)
 * I keep a [list of data cleaning tools on Pinboard](https://pinboard.in/u:paulbradshaw/t:cleaning+tools)
 
 ## Typical data problems
