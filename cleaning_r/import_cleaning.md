@@ -12,7 +12,7 @@ Many of these problems can be fixed by using the **parameters** in functions for
 
 To illustrate, let's use a spreadsheet with a number of problems. 
 
-## Import the `readxl` package
+## Import the `tidyverse` and the `readxl` package
 
 First, we need to import a package for dealing with spreadsheets. The `readxl` package is a collection of functions for dealing with Excel spreadsheets. It should already be installed in RStudio so you don't need to run the `install.packages` function below - you only need to activate the package using `library`.
 
