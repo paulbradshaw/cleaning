@@ -1,19 +1,4 @@
----
-title: "Cleaning data in R"
-output: html_notebook
----
-
-# Cleaning data in R
-
-[Wikipedia's entry on dirty data](https://en.wikipedia.org/wiki/Dirty_data) defines it as:
-
-> “Dirty data, also known as rogue data, are inaccurate, incomplete or inconsistent data, especially in a computer system or database.”
-
-We can also add data that is **inconvenient or incompatible** - areas where R, and the `tidyverse` in particular, come in very useful.
-
-This notebook details some techniques in R for working with dirty data.
-
-## Inconvenient data: wrong shape
+# Cleaning data in R: cleaning while importing
 
 One of the most common situations that might require us to clean data is when that data is not in the right 'shape' for the analysis we want to perform. Problems include:
 
