@@ -1,8 +1,3 @@
----
-title: "R Notebook"
-output: md_document
----
-
 # Reshaping data: analysing the impact of COVID on special educational needs
 
 Go to [National statistics on special educational needs in England](https://explore-education-statistics.service.gov.uk/find-statistics/special-educational-needs-in-england) and click 'Download all data', then unzip, it's called sen_ncyear_.csv - it has a column for each year group (Q is nc_year_1) and a column (M) for 'primary_need' - so you can filter that down to 'Speech, Language and Communications needs'
