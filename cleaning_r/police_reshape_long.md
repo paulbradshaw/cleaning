@@ -1,8 +1,3 @@
----
-title: "Cleaning data on GP surgeries"
-output: md_document
----
-
 # Reshaping data on police misconduct
 
 This notebook explains some code used for a [BBC story on police misconduct](https://www.bbc.co.uk/news/uk-59594712). The [GitHub repo for the story can be found here](https://github.com/BBC-Data-Unit/police_misconduct).
