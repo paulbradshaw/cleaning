@@ -10,4 +10,3 @@ This folder contains notebooks with some techniques in R for working with dirty 
 
 * [Cleaning data while importing](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/import_cleaning.md)
 * [Reshaping and filtering data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshape.md) and calculating year on year changes and percentages
-* A case study in [cleaning GP surgery data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/stringr_gpsurgeries.md) to extract days, times, and gender
