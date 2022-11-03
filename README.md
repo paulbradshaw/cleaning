@@ -52,17 +52,28 @@ For working with XML files try the ones that can be [downloaded from the Food St
 
 For JSON files try [petition.parliament.uk](https://petition.parliament.uk/) - go to any petition and look for the JSON link at the bottom of the page.
 
-## Tutorials
+## Tutorials: Open Refine
 
 A [series of introductory guides to Open Refine can be found in the GitHub repo for one of my modules at Birmingham City University here](https://github.com/paulbradshaw/MED7369-Specialist-Investigative-Journalism/tree/master/cleaning)
 
 * [Open Refine's 'common transforms' features for basic cleaning](https://onlinejournalismblog.com/2011/07/05/cleaning-data-using-google-refine-a-quick-guide-2/)
 * [How to: clean up spreadsheet headings that run across multiple rows using Open Refine](https://onlinejournalismblog.com/2013/11/13/how-to-clean-up-spreadsheet-headings-that-run-across-multiple-rows-using-open-refine/)
 * [Converting JSON or XML into spreadsheets using Open Refine](https://onlinejournalismblog.com/2015/10/21/how-to-convert-xml-or-json-into-spreadsheets-using-open-refine/)
-* [Converting sentences to numbers using a spreadsheet](https://github.com/paulbradshaw/cleaning/blob/master/sentencestonumbers.md)
-* [A folder of tutorials on using R's cleaning functions](https://github.com/paulbradshaw/cleaning/tree/master/cleaning_r)
 * Tony Hirst explains [Data Shaping in Google Refine – Generating New Rows from Multiple Values in a Single Column](https://onlinejournalismblog.com/2012/07/30/data-shaping-in-google-refine-generating-new-rows-from-multiple-values-in-a-single-column/)
 * I've written about [Scraping data with Google Refine](https://onlinejournalismblog.com/2012/01/13/sftw-scraping-data-with-google-refine/)
 * Former MA Online Journalism student Ion Mates explains how he used some of Refine's more advanced functionality, and regex, in his post on [cleaning a converted PDF](https://onlinejournalismblog.com/2015/04/07/how-to-clean-a-converted-pdf-using-open-refine/)
 * Former MA Online Journalism student Cristian Giuletti explains [How to: combine multiple rows in a dataset where text is split across them](https://onlinejournalismblog.com/2014/05/30/how-to-combine-multiple-rows-in-a-dataset-where-text-is-split-across-them-open-refine/)
 * More at https://onlinejournalismblog.com/tag/google-refine/page/2/
+
+## Tutorials: Cleaning in spreadsheets
+
+* [Grabbing or checking the first, middle or last part of a piece of information: RIGHT, LEFT and MID](https://github.com/paulbradshaw/cleaning/blob/master/rightleft.md)
+* [What day did that date fall on? Which year was the worst? Extracting days, months and years from full dates](https://github.com/paulbradshaw/cleaning/blob/master/dates.md)
+* [Converting sentences to numbers using a spreadsheet](https://github.com/paulbradshaw/cleaning/blob/master/sentencestonumbers.md)
+
+## Tutorials: Cleaning in R
+
+* [Cleaning data while importing](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/import_cleaning.md)
+* [Reshaping wide to long](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/police_reshape_long.md): police misconduct data
+* [Reshaping long to wide and filtering data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshape.md) and calculating year on year changes and percentages
+
