@@ -66,27 +66,6 @@ head(pylldata)
 ```
 That seems to have fixed the problem. However, always make sure you take a look at the data that you've left out, in case it might be important in understanding the remaining data. In this case those header rows do include some contextual information on the source, period covered, and methodology.
 
-## Cleaning: empty rows 
-
-Empty rows can be dropped by [using the `drop_na()` function](https://tidyr.tidyverse.org/reference/drop_na.html).
-
-This will remove rows where there is an `NA` in a column you specify. For that reason you need to be absolutely sure that the column in question *always* has a value *apart* from when the entire row is empty.
-
-```{r import and use drop_na}
-#import some data - it should have 352 rows
-disposals <- readxl::read_excel("Disposals by region 2012-13 Table.xls", skip = 1)
-#show the first few rows - note the empty one with NA in it
-head(disposals)
-disposals_cleaned <- drop_na(disposals, Female)
-#remove rows from the data frame 'disposals' where the column 'Female' has NA in it.
-#this has 230 rows
-head(disposals_cleaned)
-#or we can remove by 'piping' the results of using read_excel into the drop_na function
-#this time we don't have to name the dataframe because we've 'piped' it already
-disposals <- readxl::read_excel("Disposals by region 2012-13 Table.xls", skip = 1) %>%
-  drop_na(Female)
-```
-
 
 ## Inaccurate data: wrong data type
 
