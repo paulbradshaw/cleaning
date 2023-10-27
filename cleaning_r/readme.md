@@ -8,8 +8,8 @@ We can also add data that is **inconvenient or incompatible** - areas where R, a
 
 This folder contains notebooks with some techniques in R for working with dirty data.
 
-* [Cleaning data while importing](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/import_cleaning.md)
 * [Cleaning and reshaping data on firefighters](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshaping_fire.md)
+* [Cleaning health data including splitting columns](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/import_cleaning.md)
 * [Reshaping wide to long](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/police_reshape_long.md): police misconduct data
 * [Reshaping long to wide and filtering data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshape.md) and calculating year on year changes and percentages
 
