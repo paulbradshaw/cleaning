@@ -72,9 +72,15 @@ A [series of introductory guides to Open Refine can be found in the GitHub repo 
 * [What day did that date fall on? Which year was the worst? Extracting days, months and years from full dates](https://github.com/paulbradshaw/cleaning/blob/master/dates.md)
 * [Converting sentences to numbers using a spreadsheet](https://github.com/paulbradshaw/cleaning/blob/master/sentencestonumbers.md)
 
-## Tutorials: Cleaning in R
+## Tutorials: Cleaning in R ([dedicated folder here](https://github.com/paulbradshaw/cleaning/tree/master/cleaning_r))
 
+* [Cleaning and reshaping data on firefighters](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshaping_fire.md)
 * [Cleaning data while importing](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/import_cleaning.md)
 * [Reshaping wide to long](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/police_reshape_long.md): police misconduct data
 * [Reshaping long to wide and filtering data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshape.md) and calculating year on year changes and percentages
+* Emily Halford's [guide to cleaning with the Janitor package](https://towardsdatascience.com/cleaning-and-exploring-data-with-the-janitor-package-ee4a3edf085e)
+* Matt Waite's Gitbook on data journalism, which [covers cleaning in chapter 10](http://mattwaite.github.io/datajournalism/data-cleaning-part-i-data-smells.html)...
+* ...[Janitor in chapter 11](http://mattwaite.github.io/datajournalism/data-cleaning-part-ii-janitor.html) and
+* ...[Refinr, Open Refine in R in chapter 12](http://mattwaite.github.io/datajournalism/data-cleaning-part-iii-open-refine.html)
+
 
