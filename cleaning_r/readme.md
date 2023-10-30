@@ -13,3 +13,9 @@ This folder contains notebooks with some techniques in R for working with dirty 
 * [Reshaping wide to long](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/police_reshape_long.md): police misconduct data
 * [Reshaping long to wide and filtering data](https://github.com/paulbradshaw/cleaning/blob/master/cleaning_r/reshape.md) and calculating year on year changes and percentages
 
+Some recommended resources for using R to clean data include:
+
+* Emily Halford's [guide to cleaning with the Janitor package](https://towardsdatascience.com/cleaning-and-exploring-data-with-the-janitor-package-ee4a3edf085e)
+* Matt Waite's Gitbook on data journalism, which [covers cleaning in chapter 10](http://mattwaite.github.io/datajournalism/data-cleaning-part-i-data-smells.html)...
+* ...[Janitor in chapter 11](http://mattwaite.github.io/datajournalism/data-cleaning-part-ii-janitor.html) and
+* ...[Refinr, Open Refine in R in chapter 12](http://mattwaite.github.io/datajournalism/data-cleaning-part-iii-open-refine.html)
